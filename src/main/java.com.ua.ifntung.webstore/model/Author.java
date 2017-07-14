@@ -13,26 +13,13 @@ public class Author {
     private long id;
     private String name;
 
-    public Author() {
-
-    }
-
-    public Author(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
     @Id
     @Column(name = "id")
     public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -54,13 +41,15 @@ public class Author {
         Author author = (Author) o;
 
         if (id != author.id) return false;
-        return name != null ? name.equals(author.name) : author.name == null;
+        if (name != null ? !name.equals(author.name) : author.name != null) return false;
+
+        return true;
     }
 
     @Override
     public int hashCode() {
-        long result = id;
+        int result = (int) (id ^ (id >>> 32));
         result = 31 * result + (name != null ? name.hashCode() : 0);
-        return (int)result;
+        return result;
     }
 }
