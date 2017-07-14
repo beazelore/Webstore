@@ -10,26 +10,26 @@
     <import resource="webflow.xml" />
     <mvc:resources mapping="/resources/**" location="/" />
     <bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
-        <property name="flowRegistry" ref="flowRegistry" />
+        <property login="flowRegistry" ref="flowRegistry" />
     </bean>
 
     <bean class="org.springframework.faces.webflow.JsfFlowHandlerAdapter">
-        <property name="flowExecutor" ref="flowExecutor"/>
+        <property login="flowExecutor" ref="flowExecutor"/>
     </bean>
 
     <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
-        <property name="viewClass" value="org.springframework.faces.mvc.JsfView"/>
-        <property name="prefix" value="WEB_INF/views/" />
-        <property name="suffix" value=".xhtml" />
+        <property login="viewClass" value="org.springframework.faces.mvc.JsfView"/>
+        <property login="prefix" value="WEB_INF/views/" />
+        <property login="suffix" value=".xhtml" />
     </bean>
 
     <bean id="msg" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-        <property name="basename" value="/WEB-INF/locale/messages" />
-        <property name="defaultEncoding" value="UTF-8" />
+        <property login="basename" value="/WEB-INF/locale/messages" />
+        <property login="defaultEncoding" value="UTF-8" />
     </bean>
 
     <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
-         <property name="defaultLocale" value="ua"/>
+         <property login="defaultLocale" value="ua"/>
     </bean>
 
 </beans>

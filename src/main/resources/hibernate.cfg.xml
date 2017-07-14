@@ -4,12 +4,27 @@
     "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <property name="connection.url"/>
-    <property name="connection.driver_class"/>
-    <!-- <property name="connection.username"/> -->
-    <!-- <property name="connection.password"/> -->
+    <!--<property login="connection.url"/>
+    <property login="connection.driver_class"/>-->
+    <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL94Dialect</property>
+    <property name="connection.url">jdbc:postgresql://localhost:5432/bookstore-spring</property>
+    <property name="connection.driver_class">org.postgresql.Driver</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <property name="hibernate.connection.username">postgres</property>
+    <property name="hibernate.connection.password">postgres</property>
+    <mapping class="model.Author"/>
+    <mapping resource="model/Author.hbm.xml"/>
+    <mapping resource="model/Book.hbm.xml"/>
+    <mapping class="model.Book"/>
+    <mapping resource="model/Genre.hbm.xml"/>
+    <mapping class="model.Genre"/>
+    <mapping resource="model/Users.hbm.xml"/>
+    <mapping class="model.Users"/>
+    <!-- <propeloginname="connection.username"/> -->
+    <!-- <propeloginname="connection.password"/> -->
 
     <!-- DB schema will be updated if needed -->
-    <!-- <property name="hbm2ddl.auto">update</property> -->
+    <!-- <propeloginname="hbm2ddl.auto">update</property> -->
   </session-factory>
 </hibernate-configuration>
