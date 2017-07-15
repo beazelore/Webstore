@@ -12,12 +12,12 @@
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.current_session_context_class">thread</property>
     <mapping class="model.Author"/>
-    <mapping resource="model/Author.hbm.xml"/>
-    <mapping resource="model/Book.hbm.xml"/>
+    <mapping resource="Author.hbm.xml"/>
+    <mapping resource="Book.hbm.xml"/>
     <mapping class="model.Book"/>
-    <mapping resource="model/Genre.hbm.xml"/>
+    <mapping resource="Genre.hbm.xml"/>
     <mapping class="model.Genre"/>
-    <mapping resource="model/Users.hbm.xml"/>
+    <mapping resource="Users.hbm.xml"/>
     <mapping class="model.Users"/>
     <!-- <propeloginname="connection.username"/> -->
     <!-- <propeloginname="connection.password"/> -->

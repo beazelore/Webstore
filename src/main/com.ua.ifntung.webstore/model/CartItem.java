@@ -46,7 +46,7 @@ public class CartItem {
     }
 
     private void updatePrice(){
-        totalPrice = this.book.getPrice().multiply(new BigDecimal(this.quantity));
+        totalPrice = new BigDecimal(this.book.getPrice() * this.quantity);
     }
 
     @Override
