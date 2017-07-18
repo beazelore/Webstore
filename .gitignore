@@ -3,3 +3,4 @@
 lib/
 target/
 web/resources/img/*
+out/*

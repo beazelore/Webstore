@@ -2595,8 +2595,15 @@ input[type="button"].btn-block {
 
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url('../font-awesome/fonts/glyphicons-halflings-regular.eot');
-  src: url('../font-awesome/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../font-awesome/fonts/glyphicons-halflings-regular.woff') format('woff'), url('../font-awesome/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../font-awesome/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url("#{resource['fonts:glyphicons-halflings-regular.eot']}");
+  src: url("#{resource['fonts:glyphicons-halflings-regular.eot?#iefix']}")
+  format('embedded-opentype'),
+  url("#{resource['fonts:glyphicons-halflings-regular.woff']}")
+  format('woff'),
+  url("#{resource['fonts:glyphicons-halflings-regular.ttf']}")
+  format('truetype'),
+  url("#{resource['fonts:glyphicons-halflings-regular.svg#glyphicons_halflingsregular']}")
+  format('svg');
 }
 
 .glyphicon {
@@ -6596,7 +6603,7 @@ button.close {
   position: fixed;
 }
 
-@-ms-viewport {
+ @-ms-viewport {
   width: device-width;
 }
 

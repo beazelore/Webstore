@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+    <title>Facelet Title</title>
+</h:head>
+<h:body>
+    <ui:composition>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <h:button type="button" class="navbar-toggle" pt:data-toggle="collapse" pt:data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </h:button>
+                    <a class="navbar-brand" href="#">Bookshellf<i class="fa fa-book"></i></a>
+                </div>
+                <div class="col-sm-3">
+                    <div id="imaginary_container">
+                        <div class="input-group stylish-input-group">
+                            <h:inputText type="text" class="form-control"  pt:placeholder="Search" />
+                            <span class="input-group-addon">
+                        <button type="submit">
+                            <span class="fa fa-search"></span>
+                        </button>
+                    </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="">CATALOG</a></li>
+                        <li><a href="about.html">FEEDBACK</a></li>
+                        <li><a href="services.html">ABOUT US</a></li>
+                        <li><a href="works.html">CONTACTS</a></li>
+                        <li><h:link data-toggle="modal" data-target="#myModal" href="#myModal"><i class="fa fa-user"></i>username</h:link></li>
+                        <li><a><i class="fa fa-sign-out fa-lg"></i></a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+    </ui:composition>
+</h:body>
+</html>
