@@ -7,8 +7,14 @@
     <class name="model.Book" table="book" schema="public" catalog="bookstore-spring">
         <id name="id" column="id"/>
         <property name="name" column="name"/>
-        <property name="genreId" column="genre_id"/>
-        <property name="authorId" column="author_id"/>
+        <!--<property name="genreId" column="genre_id"/>
+        <property name="authorId" column="author_id"/>-->
+        <many-to-one class="model.Genre" fetch="join" name="genre" lazy="false">
+            <column name="genre" not-null="true"></column>
+         </many-to-one>
+        <many-to-one class="model.Author" fetch="join" name="author" lazy="false">
+            <column name="author" not-null="true"></column>
+        </many-to-one>
         <property name="pages" column="pages"/>
         <property name="isbn" column="isbn"/>
         <property name="yearOfPublcation" column="year_of_publcation"/>

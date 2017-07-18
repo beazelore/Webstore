@@ -12,8 +12,8 @@ import javax.persistence.Id;
 public class Book {
     private long id;
     private String name;
-    private long genreId;
-    private long authorId;
+    private Genre genre;
+    private Author author;
     private Integer pages;
     private String isbn;
     private Integer yearOfPublcation;
@@ -40,23 +40,23 @@ public class Book {
     }
 
     @Basic
-    @Column(name = "genre_id")
-    public long getGenreId() {
-        return genreId;
+    @Column(name = "genre")
+    public Genre getGenre() {
+        return genre;
     }
 
-    public void setGenreId(long genreId) {
-        this.genreId = genreId;
+    public void setGenre(Genre genre) {
+        this.genre = genre;
     }
 
     @Basic
-    @Column(name = "author_id")
-    public long getAuthorId() {
-        return authorId;
+    @Column(name = "author")
+    public Author getAuthor() {
+        return author;
     }
 
-    public void setAuthorId(long authorId) {
-        this.authorId = authorId;
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 
     @Basic
@@ -107,8 +107,8 @@ public class Book {
         Book book = (Book) o;
 
         if (id != book.id) return false;
-        if (genreId != book.genreId) return false;
-        if (authorId != book.authorId) return false;
+        if (genre != book.genre) return false;
+        if (author != book.author) return false;
         if (price != book.price) return false;
         if (name != null ? !name.equals(book.name) : book.name != null) return false;
         if (pages != null ? !pages.equals(book.pages) : book.pages != null) return false;
@@ -123,8 +123,8 @@ public class Book {
     public int hashCode() {
         int result = (int) (id ^ (id >>> 32));
         result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (int) (genreId ^ (genreId >>> 32));
-        result = 31 * result + (int) (authorId ^ (authorId >>> 32));
+        //result = 31 * result + (int) (genre ^ (genre >>> 32));
+        //result = 31 * result + (int) (author ^ (author >>> 32));
         result = 31 * result + (pages != null ? pages.hashCode() : 0);
         result = 31 * result + (isbn != null ? isbn.hashCode() : 0);
         result = 31 * result + (yearOfPublcation != null ? yearOfPublcation.hashCode() : 0);
