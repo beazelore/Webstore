@@ -34,7 +34,7 @@ public class BookDAOImpl  implements BookDAO{
         bookProection.add(Projections.property("author"),"author");
         bookProection.add(Projections.property("pages"),"pages");
         bookProection.add(Projections.property("isbn"),"isbn");
-        bookProection.add(Projections.property("yearOfPublcation"),"yearOfPublcation");
+        bookProection.add(Projections.property("yearOfPublication"),"yearOfPublication");
         bookProection.add(Projections.property("price"),"price");
 
     }

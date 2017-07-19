@@ -16,7 +16,7 @@ public class Book {
     private Author author;
     private Integer pages;
     private String isbn;
-    private Integer yearOfPublcation;
+    private Integer yearOfPublication;
     private long price;
 
     @Id
@@ -80,13 +80,13 @@ public class Book {
     }
 
     @Basic
-    @Column(name = "year_of_publcation")
-    public Integer getYearOfPublcation() {
-        return yearOfPublcation;
+    @Column(name = "year_of_publication")
+    public Integer getYearOfPublication() {
+        return yearOfPublication;
     }
 
-    public void setYearOfPublcation(Integer yearOfPublcation) {
-        this.yearOfPublcation = yearOfPublcation;
+    public void setYearOfPublication(Integer yearOfPublcation) {
+        this.yearOfPublication = yearOfPublcation;
     }
 
     @Basic
@@ -113,7 +113,7 @@ public class Book {
         if (name != null ? !name.equals(book.name) : book.name != null) return false;
         if (pages != null ? !pages.equals(book.pages) : book.pages != null) return false;
         if (isbn != null ? !isbn.equals(book.isbn) : book.isbn != null) return false;
-        if (yearOfPublcation != null ? !yearOfPublcation.equals(book.yearOfPublcation) : book.yearOfPublcation != null)
+        if (yearOfPublication != null ? !yearOfPublication.equals(book.yearOfPublication) : book.yearOfPublication != null)
             return false;
 
         return true;
@@ -127,7 +127,7 @@ public class Book {
         //result = 31 * result + (int) (author ^ (author >>> 32));
         result = 31 * result + (pages != null ? pages.hashCode() : 0);
         result = 31 * result + (isbn != null ? isbn.hashCode() : 0);
-        result = 31 * result + (yearOfPublcation != null ? yearOfPublcation.hashCode() : 0);
+        result = 31 * result + (yearOfPublication != null ? yearOfPublication.hashCode() : 0);
         result = 31 * result + (int) (price ^ (price >>> 32));
         return result;
     }

@@ -4,3 +4,5 @@ lib/
 target/
 web/resources/img/*
 out/*
+web/resources/primefaces
+web/resources/primefaces-library

@@ -7,10 +7,7 @@
     <!--<property login="connection.url"/>
     <property login="connection.driver_class"/>-->
     <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL94Dialect</property>
-    <property name="connection.url">jdbc:postgresql://localhost:5432/bookstore-spring</property>
-    <property name="connection.driver_class">org.postgresql.Driver</property>
     <property name="hibernate.show_sql">true</property>
-    <property name="hibernate.current_session_context_class">thread</property>
     <mapping class="model.Author"/>
     <mapping resource="Author.hbm.xml"/>
     <mapping resource="Book.hbm.xml"/>

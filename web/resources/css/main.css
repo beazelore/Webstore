@@ -201,6 +201,41 @@ a:after {
 	font-weight: 700;
 }
 
+/*Left menu*/
+.left-menu ul {padding-top: 20px; text-align:left;}
+.left-menu { float: left; width: 180px;}
+.left-menu li {margin-bottom: 8px; font-size:19px;list-style-type: none;}
+.left-menu a {margin-top:5px; padding: 9px 0px 9px 21px; color: #3a3a3a; font-size: 19px;}
+.left-menu a:hover {background: #f4b8fc;}
+.left-menu a.selected_link {background: #e9f6fc;}
+
+.content { overflow: hidden; margin-top: 27px; background: #fff; border-radius: 5px; }
+
+.right-content { float: left; border-left: 1px solid #e5e5e5; width: 759px; min-height: 925px; padding-bottom: 34px;}
+.item { height:100%; width: 340px; padding-top: 18px; padding-bottom: 18px; overflow: hidden; border: 1px solid #e5e5e5; border-radius: 5px; margin-left: 15px; margin-top: 20px; float: left; }
+.item img {float: left; margin-right: 20px; margin-left: 19px;}
+.item .info {overflow: hidden; font-size: 15px;}
+.item .book_name {height: 30px;}
+.item .info .title {color: #1091c6; font-size: 18px;}
+.item .info .title:hover {text-decoration: none;}
+.item .info span {padding-top: 8px; color: #000; border-bottom: 1px solid #000; margin-top: 16px; margin-bottom: 11px; display: inline-block; font-size: 17px;}
+.item .info p {color: #666; margin-bottom: 3px;}
+.item .info p a {color: #666;}
+.item .info p a:hover {text-decoration: none; }
+.item .mr { margin-top: 12px; width:115px; height: 50px; border-radius: 5px; background: #c8ffa8; float: left; padding: 10px 12px 10px 12px; margin-left: 19px; text-decoration: none; color: #fff; font-size: 14px; text-align: center;}
+.item .delete-button {margin-top: 15px; border-radius: 5px; background: #d5564d; width:85px; float: left; padding: 10px 17px 10px 17px; margin-left: 19px; text-decoration: none; color: #fff; font-size: 14px;}
+.item .buy {font-size: 20px; padding-left: 7px; color: #101010}
+.item .delete {font-size: 14px; text-align: left; background:url("#{resource['images:recycle.png']}") no-repeat 0% 50%; padding-left: 25px;}
+.item .edit {font-size: 14px; text-align: left; background:url("#{resource['images:edit.png']}") no-repeat 0% 50%; padding-left: 25px;}
+.item .download {font-size: 14px; text-align: left; background:url("#{resource['images:down-bg.png']}") no-repeat 0% 50%; padding-left: 25px;}
+
+.image-info{
+    float: left;
+    width: 150px;
+
+}
+
+
 
 /* Red Wrap */
 #r {
