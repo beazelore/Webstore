@@ -10,6 +10,9 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+    <listener>
+        <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+    </listener>
     <servlet>
         <servlet-name>dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -23,9 +26,27 @@
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>/app/*</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.faces</url-pattern>
+    </servlet-mapping>
+
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
+
+    <context-param>
+        <param-name>primefaces.THEME</param-name>
+        <param-value>library</param-value>
+    </context-param>
+
     <mime-mapping>
         <extension>eot</extension>
         <mime-type>application/vnd.ms-fontobject</mime-type>

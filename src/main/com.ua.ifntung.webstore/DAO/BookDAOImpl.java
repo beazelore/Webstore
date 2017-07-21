@@ -22,7 +22,6 @@ public class BookDAOImpl  implements BookDAO{
     @Autowired
     private SessionFactory sessionFactory;
 
-    private List<Book> books;
 
     private ProjectionList bookProection;
 
@@ -43,8 +42,7 @@ public class BookDAOImpl  implements BookDAO{
     @Override
     public  List<Book> getBooks() {
 
-        books = (List<Book>) sessionFactory.openSession().createCriteria(Book.class)
-                .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+        List<Book> books = createBookList(createBookCriteria());
         return books;
     }
     /*public void test(){
@@ -62,10 +60,10 @@ public class BookDAOImpl  implements BookDAO{
         List<Book> books = createBookList(createBookCriteria().add(Restrictions.ilike("b.name", bookName ,MatchMode.ANYWHERE)));
         return books;
     }
-
+    @Transactional
     @Override
     public List<Book> getBooks(Genre genre) {
-        List<Book> books = createBookList(createBookCriteria().add(Restrictions.ilike("genreName",genre.getName(),MatchMode.ANYWHERE)));
+        List<Book> books = createBookList(createBookCriteria().add(Restrictions.eq("genre.id",genre.getId())));
         return books;
     }
 

@@ -10,15 +10,18 @@
 <h:body>
     <ui:composition>
                 <div class="left-menu">
-                    <h3>Flter by genre</h3>
-                    <ul>
-                        <ui:repeat value="#{genreDAOImpl.genres}" var="g">
-                            <li>
-                                <a href="#">#{g.name}</a>
-                            </li>
-                        </ui:repeat>
-                    </ul>
+                    <h:form>
 
+
+                        <h3>Flter by genre</h3>
+                        <ul>
+                            <ui:repeat value="#{genreDAOImpl.genres}" var="g">
+                                <li>
+                                    <h:commandLink value="${g.name}" action="#{bookFacade.searchBooksByGenre(g)}"></h:commandLink>
+                                </li>
+                            </ui:repeat>
+                        </ul>
+                     </h:form>
                 </div>
     </ui:composition>
 </h:body>

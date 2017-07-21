@@ -1,26 +1,39 @@
 package model;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by Павло on 14.07.2017.
  */
 @Entity
-public class Book {
-    private long id;
-    private String name;
-    private Genre genre;
-    private Author author;
-    private Integer pages;
-    private String isbn;
-    private Integer yearOfPublication;
-    private long price;
-
+public class Book implements Serializable{
     @Id
     @Column(name = "id")
+    private long id;
+    @Basic
+    @Column(name = "name")
+    private String name;
+    @Basic
+    @JoinColumn(name = "genre")
+    private Genre genre;
+    @Basic
+    @JoinColumn(name = "author")
+    private Author author;
+    @Basic
+    @Column(name = "pages")
+    private Integer pages;
+    @Basic
+    @Column(name = "isbn")
+    private String isbn;
+    @Basic
+    @Column(name = "year_of_publication")
+    private Integer yearOfPublication;
+    @Basic
+    @Column(name = "price")
+    private long price;
+
+
     public long getId() {
         return id;
     }
@@ -29,8 +42,7 @@ public class Book {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "name")
+
     public String getName() {
         return name;
     }
@@ -39,8 +51,7 @@ public class Book {
         this.name = name;
     }
 
-    @Basic
-    @Column(name = "genre")
+
     public Genre getGenre() {
         return genre;
     }
@@ -49,8 +60,7 @@ public class Book {
         this.genre = genre;
     }
 
-    @Basic
-    @Column(name = "author")
+
     public Author getAuthor() {
         return author;
     }
@@ -59,8 +69,7 @@ public class Book {
         this.author = author;
     }
 
-    @Basic
-    @Column(name = "pages")
+
     public Integer getPages() {
         return pages;
     }
@@ -69,8 +78,7 @@ public class Book {
         this.pages = pages;
     }
 
-    @Basic
-    @Column(name = "isbn")
+
     public String getIsbn() {
         return isbn;
     }
@@ -79,8 +87,7 @@ public class Book {
         this.isbn = isbn;
     }
 
-    @Basic
-    @Column(name = "year_of_publication")
+
     public Integer getYearOfPublication() {
         return yearOfPublication;
     }
@@ -89,8 +96,7 @@ public class Book {
         this.yearOfPublication = yearOfPublcation;
     }
 
-    @Basic
-    @Column(name = "price")
+
     public long getPrice() {
         return price;
     }
