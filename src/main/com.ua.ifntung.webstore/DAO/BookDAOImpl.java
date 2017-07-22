@@ -56,6 +56,7 @@ public class BookDAOImpl  implements BookDAO{
     }
 
     @Override
+    @Transactional
     public List<Book> getBooks(String bookName) {
         List<Book> books = createBookList(createBookCriteria().add(Restrictions.ilike("b.name", bookName ,MatchMode.ANYWHERE)));
         return books;

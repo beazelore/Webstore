@@ -8,7 +8,7 @@
     <artifactId>Webstore</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
-        <asset.version>1.0605</asset.version>
+        <asset.version>1.062</asset.version>
     </properties>
     <dependencies>
             <dependency>

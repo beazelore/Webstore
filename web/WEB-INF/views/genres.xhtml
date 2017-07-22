@@ -12,15 +12,15 @@
                 <div class="left-menu">
                     <h:form>
 
-
                         <h3>Flter by genre</h3>
                         <ul>
                             <ui:repeat value="#{genreDAOImpl.genres}" var="g">
                                 <li>
-                                    <h:commandLink value="${g.name}" action="#{bookFacade.searchBooksByGenre(g)}"></h:commandLink>
+                                    <h:commandLink value="${g.name}" action="searchByGenre" actionListener="#{search.setGenre(g)}" ajax="false"/>
                                 </li>
                             </ui:repeat>
                         </ul>
+
                      </h:form>
                 </div>
     </ui:composition>

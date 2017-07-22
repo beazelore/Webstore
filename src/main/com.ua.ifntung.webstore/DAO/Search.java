@@ -5,6 +5,7 @@ import org.primefaces.push.annotation.Singleton;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.faces.bean.ManagedBean;
 import java.io.Serializable;
 
 /**
@@ -12,6 +13,7 @@ import java.io.Serializable;
  */
 @Component
 @Scope("singleton")
+@ManagedBean
 public class Search implements Serializable {
 
     private String text;

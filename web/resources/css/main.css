@@ -201,6 +201,9 @@ a:after {
 	font-weight: 700;
 }
 
+.button-text { background-image:url("#{resource['img/submit.jpg']}"); width: 18px; height: 18px; border: none; text-indent: -9999px; cursor: pointer; !important;}
+
+
 /*Left menu*/
 .left-menu ul {padding-top: 20px; text-align:left;}
 .left-menu { float: left; width: 180px;}

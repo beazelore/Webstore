@@ -4,6 +4,7 @@ import DAO.BookDAO;
 import model.Book;
 import model.Genre;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.faces.bean.ManagedBean;
@@ -15,23 +16,30 @@ import java.util.List;
  */
 @Component
 @ManagedBean
+@Scope("singleton")
 public class BookFacade {
-    private BookDAO bookDAO;
     @Autowired
-    public void setBookDAO(BookDAO bookDAO){
-        this.bookDAO = bookDAO;
-        books = bookDAO.getBooks();
-    }
+    private BookDAO bookDAO;
+
+    @Autowired
+    private Search searchCriteria;
 
     private List<Book> books;
 
-    public List<Book> getBooks(){
-
+    public List<Book> getBooks() {
+        if (books == null){
+            books = bookDAO.getBooks();
+        }
         return books;
-
     }
 
-    public void searchBooksByGenre(Genre genre) {
-        books = bookDAO.getBooks(genre);
+    public void searchBooksByGenre() {
+        books = bookDAO.getBooks(searchCriteria.getGenre());
     }
+
+
+    public  void searchBooksByName(){
+        books = bookDAO.getBooks(searchCriteria.getText());
+    }
+
 }
