@@ -1,5 +1,7 @@
 package model;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -32,7 +34,17 @@ public class Book implements Serializable{
     @Basic
     @Column(name = "price")
     private long price;
+    @Basic
+    @Column(name = "image")
+    private String image;
 
+    public String getImage() {
+        return this.image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public long getId() {
         return id;

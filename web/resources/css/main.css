@@ -211,10 +211,10 @@ a:after {
 .left-menu a {margin-top:5px; padding: 9px 0px 9px 21px; color: #3a3a3a; font-size: 19px;}
 .left-menu a:hover {background: #f4b8fc;}
 .left-menu a.selected_link {background: #e9f6fc;}
-
+.left-all{text-align: center; margin-left: 30px; padding-left: 30px;}
 .content { overflow: hidden; margin-top: 27px; background: #fff; border-radius: 5px; }
 
-.right-content { float: left; border-left: 1px solid #e5e5e5; width: 759px; min-height: 925px; padding-bottom: 34px;}
+.right-content { float: left; border-left: 1px solid #e5e5e5; width: 759px; min-height: 600px; padding-bottom: 34px;}
 .item { height:100%; width: 340px; padding-top: 18px; padding-bottom: 18px; overflow: hidden; border: 1px solid #e5e5e5; border-radius: 5px; margin-left: 15px; margin-top: 20px; float: left; }
 .item img {float: left; margin-right: 20px; margin-left: 19px;}
 .item .info {overflow: hidden; font-size: 15px;}
@@ -238,7 +238,9 @@ a:after {
 
 }
 
-
+.ui-paginator-page{
+    background-color: #b4b4b4 !important;
+}
 
 /* Red Wrap */
 #r {

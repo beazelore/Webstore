@@ -7,6 +7,10 @@
                         <evaluate expression="bookFacade.searchBooksByGenre()" />
                 </transition>
 
+                <transition on="getAll">
+                        <evaluate expression="bookFacade.getAll()" />
+                </transition>
+
                 <transition on="searchByText">
                         <evaluate expression="bookFacade.searchBooksByName()" />
                 </transition>

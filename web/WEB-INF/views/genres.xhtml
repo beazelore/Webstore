@@ -14,6 +14,7 @@
 
                         <h3>Flter by genre</h3>
                         <ul>
+                            <li> <h:commandLink styleClass="left-all" value="All" action="getAll" ajax="false"/> </li>
                             <ui:repeat value="#{genreDAOImpl.genres}" var="g">
                                 <li>
                                     <h:commandLink value="${g.name}" action="searchByGenre" actionListener="#{search.setGenre(g)}" ajax="false"/>

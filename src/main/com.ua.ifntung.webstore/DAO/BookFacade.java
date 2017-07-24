@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by Павло on 19.07.2017.
  */
-@Component
+@Component("bookFacade")
 @ManagedBean
 @Scope("singleton")
 public class BookFacade {
@@ -31,6 +31,10 @@ public class BookFacade {
             books = bookDAO.getBooks();
         }
         return books;
+    }
+
+    public void getAll() {
+        books = bookDAO.getBooks();
     }
 
     public void searchBooksByGenre() {
