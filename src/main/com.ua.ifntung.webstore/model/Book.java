@@ -16,10 +16,10 @@ public class Book implements Serializable{
     @Basic
     @Column(name = "name")
     private String name;
-    @Basic
+
     @JoinColumn(name = "genre")
     private Genre genre;
-    @Basic
+
     @JoinColumn(name = "author")
     private Author author;
     @Basic

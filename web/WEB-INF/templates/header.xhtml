@@ -42,7 +42,9 @@
                         <li><a href="services.html">ABOUT US</a></li>
                         <li><a href="works.html">CONTACTS</a></li>
                         <li><h:link data-toggle="modal" data-target="#myModal" href="#myModal"><i class="fa fa-user"/> username</h:link></li>
-                        <li><a href="#"><i class="fa fa-sign-out fa-lg"/></a></li>
+                        <h:form>
+                            <li><a href="${request.contextPath}/app/logout"><i class="fa fa-sign-out fa-lg"/></a></li>
+                        </h:form>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>

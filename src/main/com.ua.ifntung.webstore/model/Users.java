@@ -1,9 +1,6 @@
 package model;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by Павло on 14.07.2017.
@@ -12,7 +9,10 @@ import javax.persistence.Id;
 public class Users {
     private long id;
     private String name;
-    private String phonenumber;
+    private String password;
+
+    @JoinColumn(name = "role")
+    private Roles role;
 
     @Id
     @Column(name = "id")
@@ -35,13 +35,21 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "phonenumber")
-    public String getPhonenumber() {
-        return phonenumber;
+    @Column(name = "password")
+    public String getPassword() {
+        return password;
     }
 
-    public void setPhonenumber(String phonenumber) {
-        this.phonenumber = phonenumber;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Roles getRole() {
+        return role;
+    }
+
+    public void setRole(Roles role) {
+        this.role = role;
     }
 
     @Override
@@ -53,7 +61,7 @@ public class Users {
 
         if (id != users.id) return false;
         if (name != null ? !name.equals(users.name) : users.name != null) return false;
-        if (phonenumber != null ? !phonenumber.equals(users.phonenumber) : users.phonenumber != null) return false;
+        if (password != null ? !password.equals(users.password) : users.password != null) return false;
 
         return true;
     }
@@ -62,7 +70,7 @@ public class Users {
     public int hashCode() {
         int result = (int) (id ^ (id >>> 32));
         result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (phonenumber != null ? phonenumber.hashCode() : 0);
+        result = 31 * result + (password != null ? password.hashCode() : 0);
         return result;
     }
 }

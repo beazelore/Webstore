@@ -7,6 +7,9 @@
     <class name="model.Users" table="users" schema="public" catalog="bookstore-spring">
         <id name="id" column="id"/>
         <property name="name" column="name"/>
-        <property name="phonenumber" column="phonenumber"/>
+        <property name="password" column="password"/>
+        <many-to-one class="model.Roles" fetch="join" name="role" lazy="false">
+            <column name="role" not-null="true"/>
+        </many-to-one>
     </class>
 </hibernate-mapping>

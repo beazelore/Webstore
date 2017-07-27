@@ -16,6 +16,8 @@
     <mapping class="model.Genre"/>
     <mapping resource="Users.hbm.xml"/>
     <mapping class="model.Users"/>
+    <mapping resource="Roles.hbm.xml"/>
+    <mapping class="model.Roles"/>
     <!-- <propeloginname="connection.username"/> -->
     <!-- <propeloginname="connection.password"/> -->
 
