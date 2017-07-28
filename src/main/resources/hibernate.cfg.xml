@@ -8,16 +8,16 @@
     <property login="connection.driver_class"/>-->
     <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL94Dialect</property>
     <property name="hibernate.show_sql">true</property>
-    <mapping class="model.Author"/>
+    <mapping class="ua.ifntung.webstore.model.Author"/>
     <mapping resource="Author.hbm.xml"/>
     <mapping resource="Book.hbm.xml"/>
-    <mapping class="model.Book"/>
+    <mapping class="ua.ifntung.webstore.model.Book"/>
     <mapping resource="Genre.hbm.xml"/>
-    <mapping class="model.Genre"/>
+    <mapping class="ua.ifntung.webstore.model.Genre"/>
     <mapping resource="Users.hbm.xml"/>
-    <mapping class="model.Users"/>
+    <mapping class="ua.ifntung.webstore.model.Users"/>
     <mapping resource="Roles.hbm.xml"/>
-    <mapping class="model.Roles"/>
+    <mapping class="ua.ifntung.webstore.model.Roles"/>
     <!-- <propeloginname="connection.username"/> -->
     <!-- <propeloginname="connection.password"/> -->
 

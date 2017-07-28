@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Facelet Title</title>
+</h:head>
+<h:body>
+    <ui:composition>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <h:button type="button" class="navbar-toggle" pt:data-toggle="collapse" pt:data-target=".navbar-collapse">
+                        <span class="icon-bar"/>
+                        <span class="icon-bar"/>
+                        <span class="icon-bar"/>
+                    </h:button>
+                    <div class="navbar-brand">Bookshellf<i class="fa fa-book"/></div>
+                </div>
+                <div class="col-sm-3">
+                    <div id="imaginary_container">
+                        <h:form>
+                            <div class="input-group stylish-input-group">
+                                <h:inputText id="inputsearch" type="text" class="form-control"  pt:placeholder="Search" value="#{search.text}" />
+                                <span class="input-group-addon">
+                                    <h:commandButton styleClass="button-text" type="submit" action="searchByText"/>
+                                </span>
+                            </div>
+
+                        </h:form>
+                    </div>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="http://localhost:8079/Webstore_war_exploded/app/main?execution=e1s1">CATALOG</a></li>
+                        <li><a href="about.html">FEEDBACK</a></li>
+                        <li><a href="services.html">ABOUT US</a></li>
+                        <li><a href="works.html">CONTACTS</a></li>
+                        <li><h:link data-toggle="modal" data-target="#myModal" href="#myModal"><i class="fa fa-user fa-lg"/>&#160;&#160;${currentUser.name}</h:link></li>
+                        <li>
+
+                                <a href="${request.contextPath}/app/logout"><i class="logout fa fa-sign-out fa-2x"/></a>
+
+                        </li>
+
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+    </ui:composition>
+</h:body>
+</html>

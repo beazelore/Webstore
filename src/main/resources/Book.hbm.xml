@@ -4,15 +4,15 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="model.Book" table="book" schema="public" catalog="bookstore-spring">
+    <class name="ua.ifntung.webstore.model.Book" table="book" schema="public" catalog="bookstore-spring">
         <id name="id" column="id"/>
         <property name="name" column="name"/>
         <!--<property name="genreId" column="genre_id"/>
         <property name="authorId" column="author_id"/>-->
-        <many-to-one class="model.Genre" fetch="join" name="genre" lazy="false">
+        <many-to-one class="ua.ifntung.webstore.model.Genre" fetch="join" name="genre" lazy="false">
             <column name="genre" not-null="true"/>
          </many-to-one>
-        <many-to-one class="model.Author" fetch="join" name="author" lazy="false">
+        <many-to-one class="ua.ifntung.webstore.model.Author" fetch="join" name="author" lazy="false">
             <column name="author" not-null="true"/>
         </many-to-one>
         <property name="pages" column="pages"/>

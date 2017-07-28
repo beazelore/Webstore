@@ -1,8 +1,11 @@
-.idea/*
+.idea/
 *.iml
+*.png
+*jpg
+*gif
 lib/
 target/
-web/resources/img/*
-out/*
-web/resources/primefaces
-web/resources/primefaces-library
+src/main/webapp/resources/img/
+out/
+src/main/webapp/resources/primefaces/
+src/main/webapp/resources/primefaces-library/
