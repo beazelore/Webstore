@@ -1,6 +1,9 @@
 package ua.ifntung.webstore.DAO;
 
 
+import org.hibernate.Session;
+import org.primefaces.context.RequestContext;
+import ua.ifntung.webstore.hibernate.HibernateUtil;
 import ua.ifntung.webstore.model.Author;
 import ua.ifntung.webstore.model.Book;
 import ua.ifntung.webstore.model.Genre;
@@ -12,16 +15,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.faces.bean.ManagedBean;
 import java.util.List;
 
 /**
  * Created by Павло on 17.07.2017.
  */
 @Component
+@ManagedBean
 public class BookDAOImpl  implements BookDAO{
 
     @Autowired
-    private SessionFactory sessionFactory;
+    private SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+
+    @Autowired
+    private Search search;
 
 
     private ProjectionList bookProection;
@@ -39,6 +47,7 @@ public class BookDAOImpl  implements BookDAO{
         bookProection.add(Projections.property("image"),"image");
 
     }
+
 
     @Transactional
     @Override
@@ -88,4 +97,22 @@ public class BookDAOImpl  implements BookDAO{
         criteria.addOrder(Order.asc("b.name")).setProjection(bookProection).setResultTransformer(Transformers.aliasToBean(Book.class));
         return criteria.list();
     }
+
+    @Override
+    @Transactional
+    public void delete()
+    {
+        Session session ;
+        Book book ;
+
+        session = sessionFactory.openSession();
+        book = session.load(Book.class, search.getId());
+        session.delete(book);
+
+        //This makes the pending delete to be done
+        session.flush() ;
+        RequestContext.getCurrentInstance().update("booksList_content");
+
+    }
+
 }

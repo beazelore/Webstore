@@ -52,11 +52,17 @@
                             <p><strong>Price: </strong> #{b.price}</p>
 
                         </div>
-
-                        <p:commandLink styleClass="delete-button" title="delete" type="button" rendered="#{p:ifGranted('ROLE_ADMIN')}">
-                            <p class="delete">delete book</p>
-                        </p:commandLink>
-
+                        <h:form>
+                            <p:commandButton styleClass="delete-button"
+                                             value="delete"
+                                             role="button"
+                                             action="#{bookDAOImpl.delete}"
+                                             ajax="false"
+                                             rendered="#{p:ifGranted('ROLE_ADMIN')}"
+                                             >
+                                <f:setPropertyActionListener value="${b.id}" target="#{search.id}"/>
+                            </p:commandButton>
+                        </h:form>
                     </div>
 
                 </p:dataGrid>

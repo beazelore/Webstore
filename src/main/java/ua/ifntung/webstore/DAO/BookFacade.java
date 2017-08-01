@@ -79,5 +79,7 @@ public class BookFacade {
         orderDAO.addOrder(order);
     }
 
+    //public  void delete(long id){ bookDAO.delete(searchCriteria.getId);}
+
 
 }

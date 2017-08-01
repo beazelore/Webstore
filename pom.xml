@@ -8,7 +8,7 @@
     <artifactId>Webstore</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
-        <asset.version>1.097</asset.version>
+        <asset.version>1.0981</asset.version>
         <springsecurity-version>3.2.6.RELEASE</springsecurity-version>
     </properties>
     <dependencies>

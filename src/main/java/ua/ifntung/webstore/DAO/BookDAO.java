@@ -20,5 +20,7 @@ public interface BookDAO {
 
     List<Book> getBooks(Genre genre);
 
+    void delete();
+
 }
 
