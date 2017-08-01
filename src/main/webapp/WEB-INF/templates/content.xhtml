@@ -21,75 +21,22 @@
                             <h:outputLink styleClass="content_link" target="_blank">
                                 <img src="${b.image}" alt="no image"/>
                             </h:outputLink>
-                            <h:commandLink
-                                    styleClass="buy-btn"
-                                    value="Buy Now"
-                                    pt:data-toggle="modal"
-                                    pt:data-target="#buyModal"
-                            >
-                                <f:ajax render="#buyModal" />
+                            <h:form>
+                                <p:commandButton
+                                        styleClass="buy-btn"
+                                        value="Buy Now"
+                                        pt:data-toggle="modal"
+                                        pt:data-target="#buyModal"
+                                        action="#{order.outcome}"
+                                        update="modalform:wrap"
+                                >
+                                    <f:ajax render="#buyModal" />
+                                    <f:setPropertyActionListener value="${b.name}" target="#{orderBean.bookname}"/>
+                                        <!--type="button" class="mr"  onclick="$('#buyModal').modal('show')" value="Buy Now">-->
 
-                                    <!--type="button" class="mr"  onclick="$('#buyModal').modal('show')" value="Buy Now">-->
+                                </p:commandButton>
 
-                            </h:commandLink>
-
-                            <!-- Modal -->
-                            <div id="buyModal" class="modal fade">
-                                <div class="row">
-                                    <div class="col-md-4 col-md-offset-4 modal-custom">
-                                        <h:form class="form-horizontal" role="form">
-                                            <fieldset>
-
-                                                <!-- Form Name -->
-                                                <legend>Order Details</legend>
-
-                                                <!-- Text input-->
-                                                <div class="form-group">
-                                                    <label class="col-sm-4 control-label">First Name:</label>
-                                                    <div class="col-sm-8">
-                                                        <h:inputText type="text" pt:placeholder="Your First name" class="form-control"/>
-                                                    </div>
-                                                </div>
-                                                <!-- Text input-->
-                                                <div class="form-group">
-                                                    <label class="col-sm-4 control-label" >Last Name:</label>
-                                                    <div class="col-sm-8">
-                                                        <h:inputText type="text" pt:placeholder="Your Last name" class="form-control"/>
-                                                    </div>
-                                                </div>
-
-                                                <!-- Text input-->
-                                                <div class="form-group">
-                                                    <label class="col-sm-4 control-label" >City:</label>
-                                                    <div class="col-sm-8">
-                                                        <h:inputText type="text" pt:placeholder="City" class="form-control"/>
-                                                    </div>
-                                                </div>
-
-                                                <!-- Text input-->
-                                                <div class="form-group">
-                                                    <label class="col-sm-4 control-label">Phone number:</label>
-                                                    <div class="col-sm-8">
-                                                        <h:inputText type="text" pt:placeholder="Your Phone number" class="form-control"/>
-                                                    </div>
-
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <div class="col-sm-offset-2 col-sm-10">
-                                                        <div class="pull-right">
-                                                            <button type="submit" class="btn btn-primary">Confirm Order</button>
-                                                            <button type="submit" class="btn btn-default">Cancel</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </fieldset>
-                                        </h:form>
-                                    </div><!-- /.col-lg-12 -->
-                                </div><!-- /.row -->
-                            </div>
-
+                            </h:form>
 
                         </div>
                         <div class="info">
@@ -114,8 +61,74 @@
 
                 </p:dataGrid>
 
+                <!-- Modal -->
+                <div id="buyModal" class="modal fade">
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-4 modal-custom">
+                            <h:form id="modalform" class="form-horizontal" role="form">
+                                <fieldset>
+
+                                    <!-- Form Name -->
+                                    <legend>Order Details</legend>
+
+                                    <!-- Text input-->
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">First Name:</label>
+                                        <div class="col-sm-8">
+                                            <h:inputText type="text" pt:placeholder="Your First name"  value="#{order.FName}"/>
+                                        </div>
+                                    </div>
+                                    <!-- Text input-->
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label" >Last Name:</label>
+                                        <div class="col-sm-8">
+                                            <h:inputText type="text" pt:placeholder="Your Last name"  value="#{order.LName}"/>
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label" >City:</label>
+                                        <div class="col-sm-8">
+                                            <h:inputText type="text" pt:placeholder="City"  value="#{order.city}"/>
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Phone number:</label>
+                                        <div class="col-sm-8">
+                                            <h:inputText type="text" pt:placeholder="Your Phone number" value="#{order.phone}"/>
+                                            <input type="hidden" name="hidden1" value="${currentUser.name}"/>
+                                            <h:panelGroup id="wrap">
+                                                <input type="hidden" name="hidden2" value="#{orderBean.bookname}" />
+                                            </h:panelGroup>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            <div class="pull-right">
+                                                <h:commandButton type="submit" styleClass="btn btn-primary" action="${order.add()}" value="Confirm Order"
+                                                />
+                                                <button class="btn btn-default">Cancel</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </fieldset>
+                            </h:form>
+                        </div><!-- /.col-lg-12 -->
+                    </div><!-- /.row -->
+                </div>
+
+
+
             </div>
         </div>
+
 
     </ui:composition>
 </h:body>

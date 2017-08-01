@@ -233,8 +233,8 @@ a:after {
 .item .info p {color: #666; margin-bottom: 3px;}
 .item .info p a {color: #666;}
 .item .info p a:hover {text-decoration: none; }
-.item .buy-btn {margin-top: 12px; width:115px; height: 50px; border-radius: 5px; background: #c8ffa8; float: left; padding: 10px 12px 10px 12px; margin-left: 19px; text-decoration: none; color: #4a4a4a; font-size: 20px; text-align: center;}
-.item .delete-button {margin-top: -15px; margin-left: 3px; border-radius: 2px; background: #d5564d; width:70px; margin-right: 5px; float: right; text-decoration: none; color: #fff; font-size: 12px;}
+.item .buy-btn { font-family:Lato; margin-top: 10px; width:110px; height: 50px; border-radius: 5px; background: #a2ff89; float: left; padding: 1px 1px 1px 1px; margin-left: 19px; text-decoration: none; color: #414141; font-size: 17px; text-align: left; border: none;}
+.item .delete-button {margin-top: -15px; margin-left: 3px; border-radius: 2px; background: #d5564d; width:70px; margin-right: 5px; float: right; text-decoration: none; color: #fff; font-size: 12px; }
 .item .buy {font-size: 20px; padding-left: 7px; color: #101010}
 .item .delete {font-size: 12px; text-align: center; margin-bottom: 0px;}
 .item .edit {font-size: 14px; text-align: left; background:url("#{resource['images:edit.png']}") no-repeat 0% 50%; padding-left: 25px;}
