@@ -15,10 +15,6 @@
     <mapping class="ua.ifntung.webstore.model.Book"/>
     <mapping resource="Genre.hbm.xml"/>
     <mapping class="ua.ifntung.webstore.model.Genre"/>
-    <mapping resource="Users.hbm.xml"/>
-    <mapping class="ua.ifntung.webstore.model.Users"/>
-    <mapping resource="Roles.hbm.xml"/>
-    <mapping class="ua.ifntung.webstore.model.Roles"/>
     <mapping resource="Orders.hbm.xml"/>
     <mapping class="ua.ifntung.webstore.model.Order"/>
     <!-- <propeloginname="connection.username"/> -->

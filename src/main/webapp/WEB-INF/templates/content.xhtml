@@ -13,14 +13,14 @@
             <div>
 
                 <p:dataGrid rowIndexVar="rowIndex" columns="2" lazy="true" var="b" value="#{bookFacade.books}"
-                            id="booksList" styleClass="books_list"  paginator="true" rows="6" paginatorPosition="bottom"
-                            rowsPerPageTemplate="6,12,18" paginatorTemplate="Rows per page: {RowsPerPageDropdown} {PageLinks}"  paginatorAlwaysVisible="true" emptyMessage="">
+                            id="booksList" styleClass="books_list" paginator="true" rows="6" paginatorPosition="bottom"
+                            rowsPerPageTemplate="6,12,18"
+                            paginatorTemplate="Rows per page: {RowsPerPageDropdown} {PageLinks}"
+                            paginatorAlwaysVisible="true" emptyMessage="">
                     <div class="item">
 
                         <div class="image-info">
-                            <h:outputLink styleClass="content_link" target="_blank">
-                                <img src="${b.image}" alt="no image"/>
-                            </h:outputLink>
+                            <img src="${b.image}" alt="no image"/>
                             <h:form>
                                 <p:commandButton
                                         styleClass="buy-btn"
@@ -30,9 +30,8 @@
                                         action="#{order.outcome}"
                                         update="modalform:wrap"
                                 >
-                                    <f:ajax render="#buyModal" />
+                                    <f:ajax render="#buyModal"/>
                                     <f:setPropertyActionListener value="${b.name}" target="#{orderBean.bookname}"/>
-                                        <!--type="button" class="mr"  onclick="$('#buyModal').modal('show')" value="Buy Now">-->
 
                                 </p:commandButton>
 
@@ -41,9 +40,9 @@
                         </div>
                         <div class="info">
                             <div class="book_name">
-                                <h:outputLink id="bookName" styleClass="title" target="_blank">
+                                <p id="bookName">
                                     #{b.name}
-                                </h:outputLink>
+                                </p>
                             </div>
                             <span>#{b.author}</span>
                             <p><strong>pages: </strong> #{b.pages}</p>
@@ -56,10 +55,10 @@
                             <p:commandButton styleClass="delete-button"
                                              value="delete"
                                              role="button"
-                                             action="#{bookDAOImpl.delete}"
+                                             action="#{bookFacade.deleteBook}"
                                              ajax="false"
                                              rendered="#{p:ifGranted('ROLE_ADMIN')}"
-                                             >
+                            >
                                 <f:setPropertyActionListener value="${b.id}" target="#{search.id}"/>
                             </p:commandButton>
                         </h:form>
@@ -74,40 +73,39 @@
                             <h:form id="modalform" class="form-horizontal" role="form">
                                 <fieldset>
 
-                                    <!-- Form Name -->
                                     <legend>Order Details</legend>
 
-                                    <!-- Text input-->
                                     <div class="form-group">
                                         <label class="col-sm-4 control-label">First Name:</label>
                                         <div class="col-sm-8">
-                                            <h:inputText type="text" pt:placeholder="Your First name"  value="#{order.FName}"/>
-                                        </div>
-                                    </div>
-                                    <!-- Text input-->
-                                    <div class="form-group">
-                                        <label class="col-sm-4 control-label" >Last Name:</label>
-                                        <div class="col-sm-8">
-                                            <h:inputText type="text" pt:placeholder="Your Last name"  value="#{order.LName}"/>
+                                            <h:inputText type="text" pt:placeholder="Your First name"
+                                                         value="#{order.FName}"/>
                                         </div>
                                     </div>
 
-                                    <!-- Text input-->
                                     <div class="form-group">
-                                        <label class="col-sm-4 control-label" >City:</label>
+                                        <label class="col-sm-4 control-label">Last Name:</label>
                                         <div class="col-sm-8">
-                                            <h:inputText type="text" pt:placeholder="City"  value="#{order.city}"/>
+                                            <h:inputText type="text" pt:placeholder="Your Last name"
+                                                         value="#{order.LName}"/>
                                         </div>
                                     </div>
 
-                                    <!-- Text input-->
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">City:</label>
+                                        <div class="col-sm-8">
+                                            <h:inputText type="text" pt:placeholder="City" value="#{order.city}"/>
+                                        </div>
+                                    </div>
+
                                     <div class="form-group">
                                         <label class="col-sm-4 control-label">Phone number:</label>
                                         <div class="col-sm-8">
-                                            <h:inputText type="text" pt:placeholder="Your Phone number" value="#{order.phone}"/>
+                                            <h:inputText type="text" pt:placeholder="Your Phone number"
+                                                         value="#{order.phone}"/>
                                             <input type="hidden" name="hidden1" value="${currentUser.name}"/>
                                             <h:panelGroup id="wrap">
-                                                <input type="hidden" name="hidden2" value="#{orderBean.bookname}" />
+                                                <input type="hidden" name="hidden2" value="#{orderBean.bookname}"/>
                                             </h:panelGroup>
 
                                         </div>
@@ -117,7 +115,8 @@
                                     <div class="form-group">
                                         <div class="col-sm-offset-2 col-sm-10">
                                             <div class="pull-right">
-                                                <h:commandButton type="submit" styleClass="btn btn-primary" action="${order.add()}" value="Confirm Order"
+                                                <h:commandButton type="submit" styleClass="btn btn-primary"
+                                                                 action="${order.add()}" value="Confirm Order"
                                                 />
                                                 <button class="btn btn-default">Cancel</button>
                                             </div>
@@ -130,11 +129,8 @@
                     </div><!-- /.row -->
                 </div>
 
-
-
             </div>
         </div>
-
 
     </ui:composition>
 </h:body>

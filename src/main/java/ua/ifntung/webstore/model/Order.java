@@ -2,42 +2,21 @@ package ua.ifntung.webstore.model;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.annotations.*;
-import org.primefaces.context.RequestContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-
 import ua.ifntung.webstore.hibernate.HibernateUtil;
 
 import javax.faces.bean.ManagedBean;
-
 import javax.faces.context.FacesContext;
-import javax.persistence.*;
 import javax.persistence.Entity;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
-
-/**
- * Created by Павло on 14.07.2017.
- */
 @Entity(name = "orders")
 @ManagedBean
 public class Order {
 
-   // @SequenceGenerator(name = "myseqger", sequenceName = "order_id_seq", schema = "publc")
-   /* @GenericGenerator(name = "myseqger",strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",parameters = {
-            @org.hibernate.annotations.Parameter(name = "initial_value", value = "1"),
-            @org.hibernate.annotations.Parameter(name = "force_table_use", value = "1"),
-            @org.hibernate.annotations.Parameter(name = "value_column", value = "id"),
-            @org.hibernate.annotations.Parameter(name = "sequence", value = "order_id_seq"),
-
-    }
-    )*/
-   /* @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
-    @Basic(optional = false)
-    @Column(name = "id")*/
     private Long id;
 
     private String username;
@@ -51,13 +30,11 @@ public class Order {
     private String city;
 
     private String phone;
-    private Timestamp time;
 
-    //private Order order;
+    private Timestamp time;
 
     @Autowired
     private SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-
 
     private Session session;
 
@@ -75,11 +52,12 @@ public class Order {
         this.time = time;
     }
 
-    public void setUser(){
-        this.username= FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("hidden1");
+    public void setUser() {
+        this.username = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("hidden1");
     }
-    public void setBook(){
-        this.bookname= FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("hidden2");
+
+    public void setBook() {
+        this.bookname = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("hidden2");
     }
 
     public Long getId() {
@@ -96,7 +74,6 @@ public class Order {
 
     public void setUsername(String username) {
         this.username = username;
-       // this.order.username = username;
     }
 
     public String getBookname() {
@@ -105,7 +82,6 @@ public class Order {
 
     public void setBookname(String bookname) {
         this.bookname = bookname;
-        //this.order.bookname = bookname;
     }
 
     public String getFName() {
@@ -114,7 +90,6 @@ public class Order {
 
     public void setFName(String FName) {
         this.FName = FName;
-        //this.order.FName = FName;
 
     }
 
@@ -124,7 +99,6 @@ public class Order {
 
     public void setLName(String LName) {
         this.LName = LName;
-        //this.order.LName = LName;
     }
 
     public String getCity() {
@@ -133,7 +107,6 @@ public class Order {
 
     public void setCity(String city) {
         this.city = city;
-        //this.order.city = city;
     }
 
     public String getPhone() {
@@ -142,7 +115,6 @@ public class Order {
 
     public void setPhone(String phone) {
         this.phone = phone;
-       // this.order.phone = phone;
     }
 
     public Timestamp getTime() {
@@ -153,14 +125,13 @@ public class Order {
         this.time = time;
     }
 
-    public void setDate(){
+    public void setDate() {
         this.time = Timestamp.valueOf(LocalDateTime.now());
     }
 
-   @Transactional
-    public void add(){
+    @Transactional
+    public void add() {
 
-        //setBookname(orderBean.getBookname());
         setBook();
         setUser();
         setDate();
@@ -171,26 +142,22 @@ public class Order {
         session.close();
     }
 
-    public void outcome(){
+    public void outcome() {
         System.out.println("woooh!!!");
     }
 
-
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Order order = (Order) o;
-
-        if (id != order.id) return false;
-        if (username != null ? !username.equals(order.username) : order.username != null) return false;
-        if (bookname != null ? !bookname.equals(order.bookname) : order.bookname != null) return false;
-        if (FName != null ? !FName.equals(order.FName) : order.FName != null) return false;
-        if (LName != null ? !LName.equals(order.LName) : order.LName != null) return false;
-        if (city != null ? !city.equals(order.city) : order.city != null) return false;
-        if (phone != null ? !phone.equals(order.phone) : order.phone != null) return false;
-        return time != null ? time.equals(order.time) : order.time == null;
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (username != null ? username.hashCode() : 0);
+        result = 31 * result + (bookname != null ? bookname.hashCode() : 0);
+        result = 31 * result + (FName != null ? FName.hashCode() : 0);
+        result = 31 * result + (LName != null ? LName.hashCode() : 0);
+        result = 31 * result + (city != null ? city.hashCode() : 0);
+        result = 31 * result + (phone != null ? phone.hashCode() : 0);
+        result = 31 * result + (time != null ? time.hashCode() : 0);
+        result = 31 * result + (sessionFactory != null ? sessionFactory.hashCode() : 0);
+        result = 31 * result + (session != null ? session.hashCode() : 0);
+        return result;
     }
-
 }

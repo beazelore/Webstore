@@ -10,9 +10,7 @@ import ua.ifntung.webstore.model.Genre;
 
 import java.util.List;
 
-/**
- * Created by Павло on 18.07.2017.
- */
+
 @Component
 public class GenreDAOImpl implements GenreDAO {
     @Autowired

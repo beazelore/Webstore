@@ -1,20 +1,12 @@
 package ua.ifntung.webstore.model;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 
-/**
- * Created by Павло on 14.07.2017.
- */
 @Entity
 public class Author {
     private long id;
     private String name;
 
-    @Id
-    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -23,27 +15,12 @@ public class Author {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "name")
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Author author = (Author) o;
-
-        if (id != author.id) return false;
-        if (name != null ? !name.equals(author.name) : author.name != null) return false;
-
-        return true;
     }
 
     @Override

@@ -1,6 +1,5 @@
 package ua.ifntung.webstore.DAO;
 
-
 import org.hibernate.Session;
 import org.primefaces.context.RequestContext;
 import ua.ifntung.webstore.hibernate.HibernateUtil;
@@ -18,68 +17,57 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.faces.bean.ManagedBean;
 import java.util.List;
 
-/**
- * Created by Павло on 17.07.2017.
- */
 @Component
 @ManagedBean
-public class BookDAOImpl  implements BookDAO{
+public class BookDAOImpl implements BookDAO {
 
     @Autowired
     private SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
-    @Autowired
-    private Search search;
-
-
     private ProjectionList bookProection;
 
-    public BookDAOImpl(){
+    public BookDAOImpl() {
         bookProection = Projections.projectionList();
-        bookProection.add(Projections.property("id"),"id");
-        bookProection.add(Projections.property("name"),"name");
-        bookProection.add(Projections.property("genre"),"genre");
-        bookProection.add(Projections.property("author"),"author");
-        bookProection.add(Projections.property("pages"),"pages");
-        bookProection.add(Projections.property("isbn"),"isbn");
-        bookProection.add(Projections.property("yearOfPublication"),"yearOfPublication");
-        bookProection.add(Projections.property("price"),"price");
-        bookProection.add(Projections.property("image"),"image");
-
+        bookProection.add(Projections.property("id"), "id");
+        bookProection.add(Projections.property("name"), "name");
+        bookProection.add(Projections.property("genre"), "genre");
+        bookProection.add(Projections.property("author"), "author");
+        bookProection.add(Projections.property("pages"), "pages");
+        bookProection.add(Projections.property("isbn"), "isbn");
+        bookProection.add(Projections.property("yearOfPublication"), "yearOfPublication");
+        bookProection.add(Projections.property("price"), "price");
+        bookProection.add(Projections.property("image"), "image");
     }
-
 
     @Transactional
     @Override
-    public  List<Book> getBooks() {
+    public List<Book> getBooks() {
 
         List<Book> books = createBookList(createBookCriteria());
         return books;
     }
-    /*public void test(){
-        System.out.println(books.get(1));
-    }*/
 
     @Override
     public List<Book> getBooks(Author author) {
-        List<Book> books = createBookList(createBookCriteria().add(Restrictions.ilike("authorName",author.getName(),MatchMode.ANYWHERE)));
+        List<Book> books = createBookList(createBookCriteria().add(Restrictions.ilike("authorName", author.getName(), MatchMode.ANYWHERE)));
         return books;
     }
 
     @Override
     @Transactional
     public List<Book> getBooks(String bookName) {
-        List<Book> books = createBookList(createBookCriteria().add(Restrictions.ilike("b.name", bookName ,MatchMode.ANYWHERE)));
-        return books;
-    }
-    @Transactional
-    @Override
-    public List<Book> getBooks(Genre genre) {
-        List<Book> books = createBookList(createBookCriteria().add(Restrictions.eq("genre.id",genre.getId())));
+        List<Book> books = createBookList(createBookCriteria().add(Restrictions.ilike("b.name", bookName, MatchMode.ANYWHERE)));
         return books;
     }
 
-    private DetachedCriteria createBookCriteria(){
+    @Transactional
+    @Override
+    public List<Book> getBooks(Genre genre) {
+        List<Book> books = createBookList(createBookCriteria().add(Restrictions.eq("genre.id", genre.getId())));
+        return books;
+    }
+
+    private DetachedCriteria createBookCriteria() {
         DetachedCriteria bookListCriteria = DetachedCriteria.forClass(Book.class, "b");
         createAliases(bookListCriteria);
         return bookListCriteria;
@@ -100,17 +88,16 @@ public class BookDAOImpl  implements BookDAO{
 
     @Override
     @Transactional
-    public void delete()
-    {
-        Session session ;
-        Book book ;
+    public void delete(Long id) {
+        Session session;
+        Book book;
 
         session = sessionFactory.openSession();
-        book = session.load(Book.class, search.getId());
+        book = session.load(Book.class, id);
         session.delete(book);
 
-        //This makes the pending delete to be done
-        session.flush() ;
+        session.flush();
+        session.close();
         RequestContext.getCurrentInstance().update("booksList_content");
 
     }

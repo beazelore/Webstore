@@ -1,39 +1,39 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
-    <f:view>
-        <h:head>
-            <title><ui:insert name="title"/></title>
-            <h:outputStylesheet name="font-awesome/css/bootstrap.css?v=${1.095}" />
-            <h:outputStylesheet name="font-awesome/css/font-awesome.min.css?v=${1.031}"/>
-        </h:head>
-        <h:body>
-            <f:facet name="last">
-                <h:outputStylesheet library="css" name="main.css?v=${1.0981}"/>
-                <h:outputScript library="js" name="jquery-3.2.1.min.js" target="body"/>
-                <h:outputScript library="js" name="bootstrap.min.js" target="body"/>
+      xmlns:f="http://java.sun.com/jsf/core">
+<f:view>
+    <h:head>
+        <title><ui:insert name="title"/></title>
+        <h:outputStylesheet name="font-awesome/css/bootstrap.css?v=${1.095}"/>
+        <h:outputStylesheet name="font-awesome/css/font-awesome.min.css?v=${1.031}"/>
+    </h:head>
+    <h:body>
+        <f:facet name="last">
+            <h:outputStylesheet library="css" name="main.css?v=${1.0989}"/>
+            <h:outputScript library="js" name="jquery-3.2.1.min.js" target="body"/>
+            <h:outputScript library="js" name="bootstrap.min.js" target="body"/>
 
-            </f:facet>
+        </f:facet>
 
-            <ui:include src="/WEB-INF/templates/header.xhtml"/>
+        <ui:include src="/WEB-INF/templates/header.xhtml"/>
 
-            <div class="container">
-                <ui:include src="genres.xhtml"/>
-                <div class="right-content">
+        <div class="container">
+            <ui:include src="genres.xhtml"/>
+            <div class="right-content">
 
-                    <ui:include src="/WEB-INF/templates/content.xhtml"/>
+                <ui:include src="/WEB-INF/templates/content.xhtml"/>
 
-                    <div class="clear"></div>
+                <div class="clear"></div>
 
-                </div>
             </div>
+        </div>
 
-            <ui:include src="/WEB-INF/templates/footer.xhtml"/>
+        <ui:include src="/WEB-INF/templates/footer.xhtml"/>
 
-        </h:body>
-    </f:view>
+    </h:body>
+</f:view>
 </html>
